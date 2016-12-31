@@ -1,0 +1,42 @@
+baseurl = "http://yokomotod.io/"
+
+theme = "hugo-theme-bootstrap4-blog"
+
+DefaultContentLanguage = "en"
+defaultContentLanguageInSubdir = "true"
+
+hasCJKLanguage = "true"
+
+title = "yokomotod.io"
+copyright = "&copy;2017 yokomotod"
+
+[PermaLinks]
+  post = "/:year/:month/:day/:title/"
+
+[Taxonomies]
+  tag = "tags"
+
+[[Menu.Sidebar]]
+  name = "github"
+  url = "https://github.com/yokomotod"
+[[Menu.Sidebar]]
+  name = "twitter"
+  url = "https://twitter.com/yokomotod"
+[[Menu.Sidebar]]
+  name = "qiita"
+  url = "http://qiita.com/yokomotod"
+
+
+[Params]
+  Author = "yokomotod"
+  disqusShortname = "yokomotod-io"
+
+[Params.Sidebar]
+  about = "yokomotod blog"
+
+[Params.Social]
+  twitter = "yokomotod"
+
+[Languages]
+[Languages.en]
+[Languages.ja]
