@@ -132,7 +132,7 @@ git commit
 
 ### 課題
 
-ブログタイトルのURLが`.Site.BaseURL` (http://yokomotod.io/)になっていて、常に/enにリダイレクトされるので、/jaと分けたい。
+ブログタイトルのURLが`.Site.BaseURL` ( http://yokomotod.io/ )になっていて、常に/enにリダイレクトされるので、/jaと分けたい。
 
 RSS feedのURLがバグっている・・・。 ここも http://yokomotod.io/index.xml ではなく http://yokomotod.io/ja/index.xml に言語ごとに要切り替え。
 
