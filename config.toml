@@ -1,4 +1,4 @@
-baseurl = "http://yokomotod.io/"
+baseurl = "https://yokomotod.io/"
 
 theme = "hugo-theme-bootstrap4-blog"
 
@@ -9,6 +9,8 @@ hasCJKLanguage = "true"
 
 title = "yokomotod.io"
 copyright = "&copy;2017 yokomotod"
+
+googleAnalytics = "UA-51089249-4"
 
 [PermaLinks]
   post = "/:year/:month/:day/:title/"
