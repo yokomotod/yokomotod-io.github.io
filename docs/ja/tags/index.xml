@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on yokomotod.io</title>
+    <link>https://yokomotod.io/ja/tags/</link>
+    <description>Recent content in Tags on yokomotod.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy;2017 yokomotod</copyright>
+    <lastBuildDate>Mon, 02 Jan 2017 22:41:23 +0900</lastBuildDate>
+    
+	<atom:link href="https://yokomotod.io/ja/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gcp</title>
+      <link>https://yokomotod.io/ja/tags/gcp/</link>
+      <pubDate>Mon, 02 Jan 2017 22:41:23 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/ja/tags/gcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://yokomotod.io/ja/tags/hugo/</link>
+      <pubDate>Mon, 02 Jan 2017 22:41:23 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/ja/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

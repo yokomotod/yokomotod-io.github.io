@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on yokomotod.io</title>
+    <link>https://yokomotod.io/en/post/</link>
+    <description>Recent content in Posts on yokomotod.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy;2017 yokomotod</copyright>
+    <lastBuildDate>Mon, 02 Jan 2017 22:41:23 +0900</lastBuildDate>
+    
+	<atom:link href="https://yokomotod.io/en/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deploy Hugo on Google Cloud Storage</title>
+      <link>https://yokomotod.io/en/2017/01/02/deploy-hugo-on-google-cloud-storage/</link>
+      <pubDate>Mon, 02 Jan 2017 22:41:23 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/en/2017/01/02/deploy-hugo-on-google-cloud-storage/</guid>
+      <description>Deploy part of the Hugo blog site created in last post.
+Deploy target：Google Cloud Storage About Hugo, I saw a lot of articles that deploy to GitHub Pages.
+It&amp;rsquo;s easy and cost free, but I did&amp;rsquo;t want to set this blog as my GitHub user page, nor create dummy GitHub account.
+Therefore, I deployed on Google Cloud Storage, in Google Cloud Platform.
+No particular reason why not AWS S3.</description>
+    </item>
+    
+    <item>
+      <title>Hello, Hugo.</title>
+      <link>https://yokomotod.io/en/2017/01/01/hello-hugo./</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
+      
+      <guid>https://yokomotod.io/en/2017/01/01/hello-hugo./</guid>
+      <description>A happy new year.
+I start my blog from this year, with Hugo, with multilingal feature.
+Setup Install hugo.
+brew update brew install hugo  Generate new site.
+hugo new site yokomotod.io  Choose theme By searching theme which support multilingal mode, I found hugo-theme-bootstrap4-blog and hugo-theme-foundation6-blog.
+This time I chose hugo-theme-bootstrap4-blog.
+git clone https://github.com/alanorth/hugo-theme-bootstrap4-blog.git themes/hugo-theme-bootstrap4-blog  Configuration config.toml
+baseurl = &amp;quot;http://yokomotod.io/&amp;quot; theme = &amp;quot;hugo-theme-bootstrap4-blog&amp;quot; # Put all language under sub directories (/en, /ja).</description>
+    </item>
+    
+  </channel>
+</rss>

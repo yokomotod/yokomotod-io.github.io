@@ -1,3 +1,5 @@
+publishDir = "docs"
+
 baseurl = "https://yokomotod.io/"
 
 theme = "hugo-theme-bootstrap4-blog"

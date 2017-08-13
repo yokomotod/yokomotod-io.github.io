@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<meta property="og:title" content="Deploy Hugo on Google Cloud Storage" />
+<meta property="og:description" content="Deploy part of the Hugo blog site created in last post.
+Deploy target：Google Cloud Storage About Hugo, I saw a lot of articles that deploy to GitHub Pages.
+It&rsquo;s easy and cost free, but I did&rsquo;t want to set this blog as my GitHub user page, nor create dummy GitHub account.
+Therefore, I deployed on Google Cloud Storage, in Google Cloud Platform.
+No particular reason why not AWS S3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yokomotod.io/en/2017/01/02/deploy-hugo-on-google-cloud-storage/" />
+
+
+
+<meta property="article:published_time" content="2017-01-02T22:41:23&#43;09:00"/>
+<meta property="article:modified_time" content="2017-01-02T22:41:23&#43;09:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Deploy Hugo on Google Cloud Storage">
+<meta itemprop="description" content="Deploy part of the Hugo blog site created in last post.
+Deploy target：Google Cloud Storage About Hugo, I saw a lot of articles that deploy to GitHub Pages.
+It&rsquo;s easy and cost free, but I did&rsquo;t want to set this blog as my GitHub user page, nor create dummy GitHub account.
+Therefore, I deployed on Google Cloud Storage, in Google Cloud Platform.
+No particular reason why not AWS S3.">
+
+
+<meta itemprop="dateModified" content="2017-01-02T22:41:23&#43;09:00" />
+<meta itemprop="wordCount" content="605">
+
+
+
+<meta itemprop="keywords" content="hugo,gcp," />
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Deploy Hugo on Google Cloud Storage"/>
+<meta name="twitter:title" content="Deploy Hugo on Google Cloud Storage"/>
+<meta name="twitter:description" content="Deploy part of the Hugo blog site created in last post.
+Deploy target：Google Cloud Storage About Hugo, I saw a lot of articles that deploy to GitHub Pages.
+It&rsquo;s easy and cost free, but I did&rsquo;t want to set this blog as my GitHub user page, nor create dummy GitHub account.
+Therefore, I deployed on Google Cloud Storage, in Google Cloud Platform.
+No particular reason why not AWS S3."/>
+<meta name="twitter:site" content="@yokomotod"/>
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.25.1" />
+
+
+    <base href="https://yokomotod.io/">
+    <link rel="canonical" href="https://yokomotod.io/en/2017/01/02/deploy-hugo-on-google-cloud-storage/">
+
+    <title>Deploy Hugo on Google Cloud Storage | yokomotod.io</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://yokomotod.io/css/style.css" rel="stylesheet">
+
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-51089249-4', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://yokomotod.io/">Home</a>
+          
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="https://yokomotod.io/" rel="home">yokomotod.io</a></h1>
+        
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://yokomotod.io/en/2017/01/02/deploy-hugo-on-google-cloud-storage/">Deploy Hugo on Google Cloud Storage</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-01-02T22:41:23&#43;09:00">Mon Jan 2, 2017</time> by yokomotod in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/en/tags/hugo" rel="tag">hugo</a>, <a href="/en/tags/gcp" rel="tag">gcp</a>
+
+</p>
+  </header>
+  
+
+<p>Deploy part of the Hugo blog site created in <a href="/en/2017/01/01/hello-hugo./">last post</a>.</p>
+
+<h3 id="deploy-target-google-cloud-storage">Deploy target：Google Cloud Storage</h3>
+
+<p>About Hugo, I saw a lot of articles that deploy to GitHub Pages.</p>
+
+<p>It&rsquo;s easy and cost free, but I did&rsquo;t want to set this blog as my GitHub user page, nor create dummy GitHub account.</p>
+
+<p>Therefore, I deployed on Google Cloud Storage, in Google Cloud Platform.</p>
+
+<p>No particular reason why not AWS S3.</p>
+
+<p>Google Cloud Storage it self supports <a href="https://cloud.google.com/storage/docs/hosting-static-website">Hosting a Static Website</a>,
+but it doesn&rsquo;t support SSL.</p>
+
+<p>So, in order to achieve https access, I used alpha release function, <a href="https://cloud.google.com/compute/docs/load-balancing/http/using-http-lb-with-cloud-storage">Using a Cloud Storage bucket as a load balancer backend</a>.</p>
+
+<p>This is my personal blog site, so not care about alpha&rsquo;s stability.</p>
+
+<h3 id="request-to-be-whitelisted-to-use-alpha-feature">Request to be whitelisted to use alpha feature</h3>
+
+<p>Need to request from here.</p>
+
+<p><a href="https://cloud.google.com/compute/docs/load-balancing/http/using-http-lb-with-cloud-storage">https://cloud.google.com/compute/docs/load-balancing/http/using-http-lb-with-cloud-storage</a></p>
+
+<h3 id="deploy-to-google-cloud-storage">Deploy to Google Cloud Storage</h3>
+
+<p>Firstly, deploy normaly by following <a href="https://cloud.google.com/storage/docs/hosting-static-website">document</a>.</p>
+
+<p>Create Bucket</p>
+
+<pre><code>gsutil mb -l asia gs://yokomotod.io
+</code></pre>
+
+<p>Set default ACL</p>
+
+<pre><code>gsutil defacl ch -u allUsers:READER gs://yokomotod.io
+</code></pre>
+
+<p>Upload contents</p>
+
+<pre><code>gsutil -m rsync -R public gs://yokomotod.io
+</code></pre>
+
+<p>Set Index page and Not Found page</p>
+
+<pre><code>gsutil web set -m index.html -e 404.html gs://yokomotod.io
+</code></pre>
+
+<h3 id="get-ssl-certificates">Get SSL certificates</h3>
+
+<p>Use Let&rsquo;s Encrypt.</p>
+
+<p>I used compute instance temporary because certbot doesn&rsquo;t support for mac currently.</p>
+
+<pre><code>sudo apt-get update
+sudo apt-get install certbot -t jessie-backports
+sudo certbot certonly --manual --agree-tos --manual-public-ip-logging-ok --email yokomotod@gmail.com --domain yokomotod.io
+</code></pre>
+
+<p>Then, prompt shows informaton about ACME challange.
+So prapare contents according to it.</p>
+
+<pre><code>mkdir -p public/.well-known/acme-challenge/
+echo -n m93MIV9iKfPGoZNKmDC-Una1cjD3w_FUWZYGbRsqBz0.DIv0_zl8TCm68ozhMeQWjeLCmlY0aj0PztQApIP1Lhw &gt; public/.well-known/acme-challenge/m93MIV9iKfPGoZNKmDC-Una1cjD3w_FUWZYGbRsqBz0
+gsutil -m rsync -R public gs://yokomotod.io
+</code></pre>
+
+<p>After created contents, press enter key on certbot prompt.
+Certificates files will be generated if it could respond correct response for ACME challange.</p>
+
+<p>Register certificates to CGP.</p>
+
+<p>Go to [Networking] &gt; [Load Balancer] &gt; [advanced menu] &gt; [Certificates] &gt; [CREATE SSL CERTIFICATE], and paste contents of generated <code>cert.pem</code>、<code>chain.pem</code>、<code>privkey.pem</code> to each fields.</p>
+
+<h3 id="set-up-load-balancer">Set up Load Balancer</h3>
+
+<p>Create backend backet (this is alpha feature)</p>
+
+<pre><code>gcloud alpha compute backend-buckets create yokomotod-io-backend-bucket \
+    --description &quot;&quot; \
+    --gcs-bucket-name &quot;yokomotod.io&quot;
+</code></pre>
+
+<p>Create url map</p>
+
+<pre><code>gcloud alpha compute url-maps create yokomotod-io-url-map \
+    --default-backend-bucket=yokomotod-io-backend-bucket
+</code></pre>
+
+<p>Create target proxy</p>
+
+<pre><code>gcloud compute target-http-proxies create yokomotod-io-target-http-proxy \
+    --url-map yokomotod-io-url-map
+gcloud compute target-https-proxies create yokomotod-io-target-https-proxy \
+    --url-map yokomotod-io-url-map --ssl-certificate yokomotod-io-ssl-certificate-2017-01-01
+</code></pre>
+
+<p>Create global ip address</p>
+
+<pre><code>gcloud compute addresses create yokomotod-io-address --global
+</code></pre>
+
+<p>Create global forwarding rule</p>
+
+<pre><code>gcloud compute forwarding-rules create yokomotod-io-http-forwarding-rule \
+    --address 35.186.204.77 --global \
+    --target-http-proxy yokomotod-io-target-http-proxy --ports=80
+
+gcloud compute forwarding-rules create yokomotod-io-https-forwarding-rule \
+    --address 35.186.204.77 --global \
+    --target-https-proxy yokomotod-io-target-https-proxy --ports=443
+</code></pre>
+
+<p>Finally, register yokomotod.io A record 35.186.204.77 to DNS, and <a href="https://yokomotod.io">https://yokomotod.io</a> is established.</p>
+
+<h3 id="tailing-slash-redirect-problem">Tailing slash redirect problem</h3>
+
+<p>However, access to <a href="https://yokomotod.io">https://yokomotod.io</a> will be redirect to <a href="https://yokomotod.io/en/index.html">https://yokomotod.io/en/index.html</a> ,
+even thogh local <code>hugo server</code> redirect to <a href="https://yokomotod.io/en/">https://yokomotod.io/en/</a> .</p>
+
+<p>For more precisely, it redirects as</p>
+
+<pre><code>https://yokomotod.io → https://yokomotod.io/en → https://yokomotod.io/en/index.html
+</code></pre>
+
+<p>According to <a href="http://stackoverflow.com/questions/24362594/google-cloud-storage-301-redirect">SO</a>,
+it seems that redirection <code>/en</code> to <code>/en/index.html</code>, not <code>/en/</code>, is a specification of GCS, and AWS S3 also.</p>
+
+<p>I&rsquo;m not sure why hugo won&rsquo;t redirect <code>https://yokomotod.io</code> to <code>https://yokomotod.io/en/</code> directly&hellip;</p>
+
+<p>As workaround for this, rewrite <code>public/index.html</code> manualy.</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;https://yokomotod.io/en&lt;/title&gt;&lt;link rel=&quot;canonical&quot; href=&quot;https://yokomotod.io/en&quot;/&gt;&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; url=https://yokomotod.io/en/&quot; /&gt;&lt;/head&gt;&lt;/html&gt;
+</code></pre>
+
+<p>↓</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;https://yokomotod.io/en/&lt;/title&gt;&lt;link rel=&quot;canonical&quot; href=&quot;https://yokomotod.io/en/&quot;/&gt;&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; url=https://yokomotod.io/en/&quot; /&gt;&lt;/head&gt;&lt;/html&gt;
+</code></pre>
+
+<h3 id="todos">TODOs</h3>
+
+<ul>
+<li>Tailing slash redirect problem
+
+<ul>
+<li>I would like to submit issues to hugo about this</li>
+</ul></li>
+<li>Update Let&rsquo;s Encrypt Certificates automation
+
+<ul>
+<li>Cron on Compute Instance can achieve it, but I don&rsquo;t want to have instance only for that.</li>
+<li>I&rsquo;m waiting Cloud Function cron job or like that. Until that, maybe GAE Cron Service can be used but not checked.</li>
+</ul></li>
+<li>301 Redirect http requests to https
+
+<ul>
+<li>AWS Cloud Front support http→https redirect but GCP doesn&rsquo;t yet.</li>
+<li>This is also can be done with nginx on instance, but I don&rsquo;t want to &hellip;</li>
+<li>Or else, I hope the feature of Cloud Function backend for Load Balancer</li>
+</ul></li>
+</ul>
+
+
+  
+  <h4>Translations</h4>
+  <ul>
+    
+    <li>
+      <a href="https://yokomotod.io/ja/2017/01/02/deploy-hugo-on-google-cloud-storage/">ja: Deploy Hugo on Google Cloud Storage</a>
+    </li>
+    
+  </ul>
+  
+  
+  <hr>
+<footer>
+  <header>
+    <h4>Share</h4>
+  </header>
+  <nav class="nav nav-inline">
+    <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fyokomotod.io%2fen%2f2017%2f01%2f02%2fdeploy-hugo-on-google-cloud-storage%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fyokomotod.io%2fen%2f2017%2f01%2f02%2fdeploy-hugo-on-google-cloud-storage%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fyokomotod.io%2fen%2f2017%2f01%2f02%2fdeploy-hugo-on-google-cloud-storage%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fyokomotod.io%2fen%2f2017%2f01%2f02%2fdeploy-hugo-on-google-cloud-storage%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+  </nav>
+</footer>
+
+  
+</article> 
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+  
+  
+  if (window.location.hostname == "localhost")
+    return;
+
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  var disqus_shortname = 'yokomotod-io';
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>yokomotod blog</p>
+  </section>
+  
+
+  
+
+  <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="/en/2017/01/02/deploy-hugo-on-google-cloud-storage/">Deploy Hugo on Google Cloud Storage</a></li>
+      
+      <li><a href="/en/2017/01/01/hello-hugo./">Hello, Hugo.</a></li>
+      
+      <li><a href="/en/post/">Posts</a></li>
+      
+    </ol>
+  </section>
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://github.com/yokomotod">github</a></li>
+      
+      <li><a href="http://qiita.com/yokomotod">qiita</a></li>
+      
+      <li><a href="https://twitter.com/yokomotod">twitter</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      &copy;2017 yokomotod
+      
+      </p>
+      <p>
+      <a href="https://yokomotod.io/en/2017/01/02/deploy-hugo-on-google-cloud-storage/#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

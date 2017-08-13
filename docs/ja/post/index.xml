@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on yokomotod.io</title>
+    <link>https://yokomotod.io/ja/post/</link>
+    <description>Recent content in Posts on yokomotod.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy;2017 yokomotod</copyright>
+    <lastBuildDate>Mon, 02 Jan 2017 22:41:23 +0900</lastBuildDate>
+    
+	<atom:link href="https://yokomotod.io/ja/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deploy Hugo on Google Cloud Storage</title>
+      <link>https://yokomotod.io/ja/2017/01/02/deploy-hugo-on-google-cloud-storage/</link>
+      <pubDate>Mon, 02 Jan 2017 22:41:23 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/ja/2017/01/02/deploy-hugo-on-google-cloud-storage/</guid>
+      <description>前回作成したHugoブログをデプロイするところ。 デプロイ先：Google Cloud Storage HugoだとGithub Pagesへのデプロイの記事をよく見かけ</description>
+    </item>
+    
+    <item>
+      <title>Hello, Hugo.</title>
+      <link>https://yokomotod.io/ja/2017/01/01/hello-hugo./</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/ja/2017/01/01/hello-hugo./</guid>
+      <description>新年あけましておめでとうございます。 2017年になったこの機にブログを始める。（2年ぶり4回目&amp;hellip; 今回は2017年なのでHugo</description>
+    </item>
+    
+  </channel>
+</rss>

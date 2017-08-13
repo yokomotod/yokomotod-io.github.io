@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gcp on yokomotod.io</title>
+    <link>https://yokomotod.io/en/tags/gcp/</link>
+    <description>Recent content in Gcp on yokomotod.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy;2017 yokomotod</copyright>
+    <lastBuildDate>Mon, 02 Jan 2017 22:41:23 +0900</lastBuildDate>
+    
+	<atom:link href="https://yokomotod.io/en/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deploy Hugo on Google Cloud Storage</title>
+      <link>https://yokomotod.io/en/2017/01/02/deploy-hugo-on-google-cloud-storage/</link>
+      <pubDate>Mon, 02 Jan 2017 22:41:23 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/en/2017/01/02/deploy-hugo-on-google-cloud-storage/</guid>
+      <description>Deploy part of the Hugo blog site created in last post.
+Deploy target：Google Cloud Storage About Hugo, I saw a lot of articles that deploy to GitHub Pages.
+It&amp;rsquo;s easy and cost free, but I did&amp;rsquo;t want to set this blog as my GitHub user page, nor create dummy GitHub account.
+Therefore, I deployed on Google Cloud Storage, in Google Cloud Platform.
+No particular reason why not AWS S3.</description>
+    </item>
+    
+  </channel>
+</rss>

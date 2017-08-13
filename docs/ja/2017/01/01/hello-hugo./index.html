@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<meta property="og:title" content="Hello, Hugo." />
+<meta property="og:description" content="新年あけましておめでとうございます。 2017年になったこの機にブログを始める。（2年ぶり4回目&hellip; 今回は2017年なのでHugo" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yokomotod.io/ja/2017/01/01/hello-hugo./" />
+
+
+
+<meta property="article:published_time" content="2017-01-01T00:00:00&#43;09:00"/>
+<meta property="article:modified_time" content="2017-01-01T00:00:00&#43;09:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Hello, Hugo.">
+<meta itemprop="description" content="新年あけましておめでとうございます。 2017年になったこの機にブログを始める。（2年ぶり4回目&hellip; 今回は2017年なのでHugo">
+
+
+<meta itemprop="dateModified" content="2017-01-01T00:00:00&#43;09:00" />
+<meta itemprop="wordCount" content="781">
+
+
+
+<meta itemprop="keywords" content="hugo," />
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Hello, Hugo."/>
+<meta name="twitter:title" content="Hello, Hugo."/>
+<meta name="twitter:description" content="新年あけましておめでとうございます。 2017年になったこの機にブログを始める。（2年ぶり4回目&hellip; 今回は2017年なのでHugo"/>
+<meta name="twitter:site" content="@yokomotod"/>
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.25.1" />
+
+
+    <base href="https://yokomotod.io/">
+    <link rel="canonical" href="https://yokomotod.io/ja/2017/01/01/hello-hugo./">
+
+    <title>Hello, Hugo. | yokomotod.io</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://yokomotod.io/css/style.css" rel="stylesheet">
+
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-51089249-4', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://yokomotod.io/">Home</a>
+          
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="https://yokomotod.io/" rel="home">yokomotod.io</a></h1>
+        
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://yokomotod.io/ja/2017/01/01/hello-hugo./">Hello, Hugo.</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-01-01T00:00:00&#43;09:00">Sun Jan 1, 2017</time> by yokomotod in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/ja/tags/hugo" rel="tag">hugo</a>
+
+</p>
+  </header>
+  
+
+<p>新年あけましておめでとうございます。</p>
+
+<p>2017年になったこの機にブログを始める。<del>（2年ぶり4回目&hellip;</del></p>
+
+<p>今回は2017年なのでHugoで多言語対応。</p>
+
+<h3 id="セットアップ">セットアップ</h3>
+
+<p>hugoのインストールから。</p>
+
+<pre><code>brew update
+brew install hugo
+</code></pre>
+
+<p>サイト生成。</p>
+
+<pre><code>hugo new site yokomotod.io
+</code></pre>
+
+<h3 id="テーマ選び">テーマ選び</h3>
+
+<p>多言語対応しているテーマを探したら意外と
+<a href="http://themes.gohugo.io/hugo-theme-bootstrap4-blog/">hugo-theme-bootstrap4-blog</a>と
+<a href="http://themes.gohugo.io/hugo-theme-foundation6-blog/">hugo-theme-foundation6-blog</a>だけしかない・・・？</p>
+
+<p>今回はhugo-theme-bootstrap4-blogで。</p>
+
+<pre><code>git clone https://github.com/alanorth/hugo-theme-bootstrap4-blog.git themes/hugo-theme-bootstrap4-blog
+</code></pre>
+
+<h3 id="設定">設定</h3>
+
+<p>config.toml</p>
+
+<pre><code>baseurl = &quot;http://yokomotod.io/&quot;
+
+theme = &quot;hugo-theme-bootstrap4-blog&quot;
+
+# どの言語もサブディレクトリ（/en、/ja）に配置。
+# これでルートディレクトリが自動的にルートページがデフォルト言語のURLにリダイレクトされる
+# ・・・が、これがSEO的に問題ないかどうかが疑問
+DefaultContentLanguage = &quot;en&quot;
+defaultContentLanguageInSubdir = &quot;true&quot;
+
+# [Language.ja]の下における方がベターだったけどそれだと認識されず。global optionな模様。
+hasCJKLanguage = &quot;true&quot;
+
+title = &quot;yokomotod.io&quot;
+copyright = &quot;&amp;copy;2017 yokomotod&quot;
+
+[PermaLinks]
+  post = &quot;/:year/:month/:day/:title/&quot;
+
+[[Menu.Sidebar]]
+  name = &quot;github&quot;
+  url = &quot;https://github.com/yokomotod&quot;
+[[Menu.Sidebar]]
+  name = &quot;twitter&quot;
+  url = &quot;https://twitter.com/yokomotod&quot;
+[[Menu.Sidebar]]
+  name = &quot;qiita&quot;
+  url = &quot;http://qiita.com/yokomotod&quot;
+
+
+[Params]
+  Author = &quot;yokomotod&quot;
+  # コメント機能
+  # https://disqus.com/ でサイト登録してIDを発行する
+  disqusShortname = &quot;yokomotod-io&quot;
+
+[Params.Social]
+  twitter = &quot;yokomotod&quot;
+
+[Params.Sidebar]
+  about = &quot;yokomotod blog&quot;
+
+# 対応する言語
+[Languages]
+[Languages.en]
+[Languages.ja]
+# いくつかの項目は、ここに書くと言語ごとに設定を切り替えられる
+
+</code></pre>
+
+<h3 id="シンタックスハイライト">シンタックスハイライト</h3>
+
+<p>ドキュメントの<a href="https://gohugo.io/extras/highlighting/#highlight-js-example">Syntax Highlighting</a>そのまま。</p>
+
+<p>layouts/partials/head-custom.html</p>
+
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css&quot;&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;
+</code></pre>
+
+<h3 id="記事作成">記事作成</h3>
+
+<pre><code>hugo new post/2017-01-01-hello-hugo.en.md
+hugo new post/2017-01-01-hello-hugo.ja.md
+</code></pre>
+
+<h3 id="ローカルサーバ起動">ローカルサーバ起動</h3>
+
+<pre><code>hugo server
+</code></pre>
+
+<h3 id="git-コミット">Git コミット</h3>
+
+<pre><code>git init
+echo &quot;/public/&quot; &gt;&gt; .gitignore
+echo &quot;/themes/&quot; &gt;&gt; .gitignore
+git add --all
+git commit
+</code></pre>
+
+<h3 id="課題">課題</h3>
+
+<p>ブログタイトルのURLが<code>.Site.BaseURL</code> ( <a href="http://yokomotod.io/">http://yokomotod.io/</a> )になっていて、常に/enにリダイレクトされるので、/jaと分けたい。</p>
+
+<p>RSS feedのURLがバグっている・・・。 ここも <a href="http://yokomotod.io/index.xml">http://yokomotod.io/index.xml</a> ではなく <a href="http://yokomotod.io/ja/index.xml">http://yokomotod.io/ja/index.xml</a> に言語ごとに要切り替え。</p>
+
+<h3 id="次回">次回</h3>
+
+<p>次はデプロイ部分の予定。Google Cloud Platformを使用。</p>
+
+<p>Google Cloud Storageでホストしつつ、Load Balancerを使ってSSLに対応。</p>
+
+
+  
+  <h4>Translations</h4>
+  <ul>
+    
+    <li>
+      <a href="https://yokomotod.io/en/2017/01/01/hello-hugo./">en: Hello, Hugo.</a>
+    </li>
+    
+  </ul>
+  
+  
+  <hr>
+<footer>
+  <header>
+    <h4>Share</h4>
+  </header>
+  <nav class="nav nav-inline">
+    <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fyokomotod.io%2fja%2f2017%2f01%2f01%2fhello-hugo.%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fyokomotod.io%2fja%2f2017%2f01%2f01%2fhello-hugo.%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fyokomotod.io%2fja%2f2017%2f01%2f01%2fhello-hugo.%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+    <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fyokomotod.io%2fja%2f2017%2f01%2f01%2fhello-hugo.%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+  </nav>
+</footer>
+
+  
+</article> 
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+  
+  
+  if (window.location.hostname == "localhost")
+    return;
+
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  var disqus_shortname = 'yokomotod-io';
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>yokomotod blog</p>
+  </section>
+  
+
+  
+
+  <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="/ja/2017/01/02/deploy-hugo-on-google-cloud-storage/">Deploy Hugo on Google Cloud Storage</a></li>
+      
+      <li><a href="/ja/2017/01/01/hello-hugo./">Hello, Hugo.</a></li>
+      
+      <li><a href="/ja/post/">Posts</a></li>
+      
+    </ol>
+  </section>
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://github.com/yokomotod">github</a></li>
+      
+      <li><a href="http://qiita.com/yokomotod">qiita</a></li>
+      
+      <li><a href="https://twitter.com/yokomotod">twitter</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      &copy;2017 yokomotod
+      
+      </p>
+      <p>
+      <a href="https://yokomotod.io/ja/2017/01/01/hello-hugo./#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

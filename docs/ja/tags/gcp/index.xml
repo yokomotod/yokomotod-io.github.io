@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gcp on yokomotod.io</title>
+    <link>https://yokomotod.io/ja/tags/gcp/</link>
+    <description>Recent content in Gcp on yokomotod.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy;2017 yokomotod</copyright>
+    <lastBuildDate>Mon, 02 Jan 2017 22:41:23 +0900</lastBuildDate>
+    
+	<atom:link href="https://yokomotod.io/ja/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deploy Hugo on Google Cloud Storage</title>
+      <link>https://yokomotod.io/ja/2017/01/02/deploy-hugo-on-google-cloud-storage/</link>
+      <pubDate>Mon, 02 Jan 2017 22:41:23 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/ja/2017/01/02/deploy-hugo-on-google-cloud-storage/</guid>
+      <description>前回作成したHugoブログをデプロイするところ。 デプロイ先：Google Cloud Storage HugoだとGithub Pagesへのデプロイの記事をよく見かけ</description>
+    </item>
+    
+  </channel>
+</rss>
