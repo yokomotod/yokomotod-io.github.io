@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://yokomotod.io/en/2017/08/13/migrated-to-github-pages/</loc>
+    <lastmod>2017-08-13T00:00:00+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://yokomotod.io/ja/2017/08/13/%E7%B5%90%E5%B1%80github-pages%E3%81%AB%E7%A7%BB%E8%A1%8C/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://yokomotod.io/en/2017/08/13/migrated-to-github-pages/"
+                />
+  </url>
+  
+  <url>
     <loc>https://yokomotod.io/en/2017/01/02/deploy-hugo-on-google-cloud-storage/</loc>
     <lastmod>2017-01-02T22:41:23+09:00</lastmod>
     <xhtml:link
@@ -50,7 +65,7 @@
   
   <url>
     <loc>https://yokomotod.io/en/tags/hugo/</loc>
-    <lastmod>2017-01-02T22:41:23+09:00</lastmod>
+    <lastmod>2017-08-13T00:00:00+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -66,7 +81,7 @@
   
   <url>
     <loc>https://yokomotod.io/en/post/</loc>
-    <lastmod>2017-01-02T22:41:23+09:00</lastmod>
+    <lastmod>2017-08-13T00:00:00+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -98,7 +113,7 @@
   
   <url>
     <loc>https://yokomotod.io/en/</loc>
-    <lastmod>2017-01-02T22:41:23+09:00</lastmod>
+    <lastmod>2017-08-13T00:00:00+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

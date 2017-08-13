@@ -6,10 +6,19 @@
     <description>Recent content in Hugo on yokomotod.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy;2017 yokomotod</copyright>
-    <lastBuildDate>Mon, 02 Jan 2017 22:41:23 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 13 Aug 2017 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://yokomotod.io/ja/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>結局Github Pagesに移行</title>
+      <link>https://yokomotod.io/ja/2017/08/13/%E7%B5%90%E5%B1%80github-pages%E3%81%AB%E7%A7%BB%E8%A1%8C/</link>
+      <pubDate>Sun, 13 Aug 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/ja/2017/08/13/%E7%B5%90%E5%B1%80github-pages%E3%81%AB%E7%A7%BB%E8%A1%8C/</guid>
+      <description>GCPのロードバランサーが、ただブログをGSでホスティングするためだけには金食い虫なので結局GitHub Pagesに移行。 以下メモ。 GitHub Pag</description>
+    </item>
     
     <item>
       <title>Deploy Hugo on Google Cloud Storage</title>

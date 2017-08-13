@@ -6,10 +6,23 @@
     <description>Recent content on yokomotod.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy;2017 yokomotod</copyright>
-    <lastBuildDate>Mon, 02 Jan 2017 22:41:23 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 13 Aug 2017 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://yokomotod.io/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Migrated to Github Pages</title>
+      <link>https://yokomotod.io/en/2017/08/13/migrated-to-github-pages/</link>
+      <pubDate>Sun, 13 Aug 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/en/2017/08/13/migrated-to-github-pages/</guid>
+      <description>I migrated this blog to github pages hosting, as a result. The CGP load balancer is expencive for just routing GS hosted content.
+This is memo for that.
+On GitHub Pages, choose project page(USER.github.io/PROJECT.github.io) and publish /docs setting. It seems that we can use only top directory pushlish setting, if we choose user page(USER.github.io).
+On hugo, add one line in config.toml.
+publishDir = &amp;quot;docs&amp;quot;  build and push, then, https://yokomotod.github.io/yokomotod-io.github.io becomes to visible.</description>
+    </item>
     
     <item>
       <title>Deploy Hugo on Google Cloud Storage</title>
