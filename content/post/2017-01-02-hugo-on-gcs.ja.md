@@ -129,8 +129,41 @@ gcloud compute forwarding-rules create yokomotod-io-https-forwarding-rule \
 
 これで、DNSで yokomotod.io のAレコードに35.186.204.77を設定することで https://yokomotod.io 開通。
 
+### 末尾スラッシュリダイレクト問題
+
+が、これで https://yokomotod.io にアクセスしてみると、何故か https://yokomotod.io/en/index.html にリダイレクトされる。
+
+ローカルで `hugo server` では https://yokomotod.io/en/ なのに・・・。
+
+調べてみると、
+
+```
+https://yokomotod.io → https://yokomotod.io/en → https://yokomotod.io/en/index.html
+```
+
+とリダイレクトされている。
+
+[Stack Overflow](http://stackoverflow.com/questions/24362594/google-cloud-storage-301-redirect)によると、
+`/en`を`/en/`じゃなく`/en/index.html`にリダイレクトするのはGCSの仕様っぽい。
+
+そもそも最初から`https://yokomotod.io → https://yokomotod.io/en/`にリダイレクトされればいい気がするんだけど。。。
+
+とりあえず、生成された`public/index.html`を直接書き換えて暫定対応。
+
+```
+<!DOCTYPE html><html><head><title>https://yokomotod.io/en</title><link rel="canonical" href="https://yokomotod.io/en"/><meta http-equiv="content-type" content="text/html; charset=utf-8" /><meta http-equiv="refresh" content="0; url=https://yokomotod.io/en/" /></head></html>
+```
+
+↓
+
+```
+<!DOCTYPE html><html><head><title>https://yokomotod.io/en/</title><link rel="canonical" href="https://yokomotod.io/en/"/><meta http-equiv="content-type" content="text/html; charset=utf-8" /><meta http-equiv="refresh" content="0; url=https://yokomotod.io/en/" /></head></html>
+```
+
 ### 課題
 
+- 末尾スラッシュ問題
+  - 最初からHugoが`/en/`にリダイレクトするのが正解な気がするのでIssueを出してみようかな
 - Let's EncryptでのCertificates更新を自動化
   - Compute Instanceにcronを仕込めば自動化はすぐできるけど、そのためだけにインスタンスを持ちたくない・・・。
   - Cloud Functionでcron的にジョブ実行できるようになると嬉しい。それまではGAEのCron Serviceとかかな。（未調査）

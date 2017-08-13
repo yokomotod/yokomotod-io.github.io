@@ -137,8 +137,38 @@ gcloud compute forwarding-rules create yokomotod-io-https-forwarding-rule \
 
 Finally, register yokomotod.io A record 35.186.204.77 to DNS, and https://yokomotod.io is established.
 
+### Tailing slash redirect problem
+
+However, access to https://yokomotod.io will be redirect to https://yokomotod.io/en/index.html ,
+even thogh local `hugo server` redirect to https://yokomotod.io/en/ .
+
+For more precisely, it redirects as
+
+```
+https://yokomotod.io → https://yokomotod.io/en → https://yokomotod.io/en/index.html
+```
+
+According to [SO](http://stackoverflow.com/questions/24362594/google-cloud-storage-301-redirect),
+it seems that redirection `/en` to `/en/index.html`, not `/en/`, is a specification of GCS, and AWS S3 also.
+
+I'm not sure why hugo won't redirect `https://yokomotod.io` to `https://yokomotod.io/en/` directly...
+
+As workaround for this, rewrite `public/index.html` manualy.
+
+```
+<!DOCTYPE html><html><head><title>https://yokomotod.io/en</title><link rel="canonical" href="https://yokomotod.io/en"/><meta http-equiv="content-type" content="text/html; charset=utf-8" /><meta http-equiv="refresh" content="0; url=https://yokomotod.io/en/" /></head></html>
+```
+
+↓
+
+```
+<!DOCTYPE html><html><head><title>https://yokomotod.io/en/</title><link rel="canonical" href="https://yokomotod.io/en/"/><meta http-equiv="content-type" content="text/html; charset=utf-8" /><meta http-equiv="refresh" content="0; url=https://yokomotod.io/en/" /></head></html>
+```
+
 ### TODOs
 
+- Tailing slash redirect problem
+  - I would like to submit issues to hugo about this
 - Update Let's Encrypt Certificates automation
   - Cron on Compute Instance can achieve it, but I don't want to have instance only for that.
   - I'm waiting Cloud Function cron job or like that. Until that, maybe GAE Cron Service can be used but not checked.
