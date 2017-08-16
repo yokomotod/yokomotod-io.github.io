@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oss on yokomotod.io</title>
+    <link>https://yokomotod.io/ja/tags/oss/</link>
+    <description>Recent content in Oss on yokomotod.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy;2017 yokomotod</copyright>
+    <lastBuildDate>Thu, 17 Aug 2017 00:04:18 +0900</lastBuildDate>
+    
+	<atom:link href="https://yokomotod.io/ja/tags/oss/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TypeScriptの`lib.d.ts`にコントリビュートできた</title>
+      <link>https://yokomotod.io/ja/2017/08/17/typescript%E3%81%AElib.d.ts%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AA%E3%83%93%E3%83%A5%E3%83%BC%E3%83%88%E3%81%A7%E3%81%8D%E3%81%9F/</link>
+      <pubDate>Thu, 17 Aug 2017 00:04:18 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/ja/2017/08/17/typescript%E3%81%AElib.d.ts%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AA%E3%83%93%E3%83%A5%E3%83%BC%E3%83%88%E3%81%A7%E3%81%8D%E3%81%9F/</guid>
+      <description>TypeScrioptのDOM APIの型定義(lib.d.ts)で、nullableなのにそうなってないところがあったので、issueを出し</description>
+    </item>
+    
+  </channel>
+</rss>

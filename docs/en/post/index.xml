@@ -6,10 +6,21 @@
     <description>Recent content in Posts on yokomotod.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy;2017 yokomotod</copyright>
-    <lastBuildDate>Sun, 13 Aug 2017 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 17 Aug 2017 00:04:18 +0900</lastBuildDate>
     
 	<atom:link href="https://yokomotod.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Contributed to TypeScript&#39;s `lib.d.ts`</title>
+      <link>https://yokomotod.io/en/2017/08/17/contributed-to-typescripts-lib.d.ts/</link>
+      <pubDate>Thu, 17 Aug 2017 00:04:18 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/en/2017/08/17/contributed-to-typescripts-lib.d.ts/</guid>
+      <description>I found the wrong non nullable type in TypeScript&amp;rsquo;s DOM API definition(lib.d.ts) so I send PR about that. And it was merged, yeah.
+Microsoft/TypeScript#16543
+Microsoft/TSJS-lib-generator#268</description>
+    </item>
     
     <item>
       <title>Migrated to Github Pages</title>

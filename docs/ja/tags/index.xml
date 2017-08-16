@@ -29,5 +29,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Oss</title>
+      <link>https://yokomotod.io/ja/tags/oss/</link>
+      <pubDate>Thu, 17 Aug 2017 00:04:18 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/ja/tags/oss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Typescript</title>
+      <link>https://yokomotod.io/ja/tags/typescript/</link>
+      <pubDate>Thu, 17 Aug 2017 00:04:18 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/ja/tags/typescript/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

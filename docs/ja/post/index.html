@@ -3,9 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <meta property="og:title" content="Posts" />
 <meta property="og:description" content="" />
@@ -14,7 +12,7 @@
 
 
 
-<meta property="og:updated_time" content="2017-08-13T00:00:00&#43;09:00"/>
+<meta property="og:updated_time" content="2017-08-17T00:04:18&#43;09:00"/>
 
 
 
@@ -25,34 +23,39 @@
 
 
 
-
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content="">
-
-
-
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@yokomotod"/>
+<meta name="generator" content="Hugo 0.26" />
 
 
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Blog",
+  "headline": "yokomotod.io",
+  "url" : "https://yokomotod.io/ja/post/",
+  "author": {
+    "@type": "Person",
+    "name": "yokomotod"
+  },
+  "dateModified": "2017-08-17T00:04:18&#43;09:00",
+  "keywords": "gcp,hugo,oss,typescript,"
+}
+</script>
 
 
-
-
-
-<meta name="generator" content="Hugo 0.25.1" />
-
-
-    <base href="https://yokomotod.io/">
     <link rel="canonical" href="https://yokomotod.io/ja/post/">
 
     <title>yokomotod.io</title>
 
     <!-- combined, minified CSS -->
-    <link href="https://yokomotod.io/css/style.css" rel="stylesheet">
+    <link href="https://yokomotod.io/css/style.css" rel="stylesheet" integrity="sha384-zYRhIy0/Yl1e5lW9cimY1AugfdkHChXyCbs2NKFaLTgeQjVfj/CMPIUdjXm/JPWV" crossorigin="anonymous">
 
     
     <!-- RSS 2.0 feed -->
     <link href="https://yokomotod.io/ja/post/index.xml" rel="alternate" type="application/rss+xml" title="yokomotod.io" />
-    <link href="https://yokomotod.io/ja/post/index.xml" rel="feed" type="application/rss+xml" title="yokomotod.io" />
     
 
     
@@ -80,7 +83,6 @@ ga('send', 'pageview');
           <a class="nav-link " href="https://yokomotod.io/">Home</a>
           
           
-          
         </nav>
       </div>
     </div>
@@ -102,6 +104,26 @@ ga('send', 'pageview');
 
 
 
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://yokomotod.io/ja/2017/08/17/typescript%E3%81%AElib.d.ts%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AA%E3%83%93%E3%83%A5%E3%83%BC%E3%83%88%E3%81%A7%E3%81%8D%E3%81%9F/">TypeScriptの<code>lib.d.ts</code>にコントリビュートできた</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-08-17T00:04:18&#43;09:00">Thu Aug 17, 2017</time> by yokomotod in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/ja/tags/typescript" rel="tag">typescript</a>, <a href="/ja/tags/oss" rel="tag">oss</a>
+
+</p>
+  </header>
+  TypeScrioptのDOM APIの型定義(lib.d.ts)で、nullableなのにそうなってないところがあったので、issueを出し
+  <a href='https://yokomotod.io/ja/2017/08/17/typescript%E3%81%AElib.d.ts%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AA%E3%83%93%E3%83%A5%E3%83%BC%E3%83%88%E3%81%A7%E3%81%8D%E3%81%9F/'>Read more →</a>
+</article> 
+
+
+
+
+
+
 <article class="blog-post">
   <header>
     <h2 class="blog-post-title"><a href="https://yokomotod.io/ja/2017/08/13/%E7%B5%90%E5%B1%80github-pages%E3%81%AB%E7%A7%BB%E8%A1%8C/">結局Github Pagesに移行</a></h2>
@@ -118,6 +140,8 @@ ga('send', 'pageview');
 
 
 
+
+
 <article class="blog-post">
   <header>
     <h2 class="blog-post-title"><a href="https://yokomotod.io/ja/2017/01/02/deploy-hugo-on-google-cloud-storage/">Deploy Hugo on Google Cloud Storage</a></h2>
@@ -130,6 +154,8 @@ ga('send', 'pageview');
   前回作成したHugoブログをデプロイするところ。 デプロイ先：Google Cloud Storage HugoだとGithub Pagesへのデプロイの記事をよく見かけ
   <a href='https://yokomotod.io/ja/2017/01/02/deploy-hugo-on-google-cloud-storage/'>Read more →</a>
 </article> 
+
+
 
 
 
@@ -153,9 +179,10 @@ ga('send', 'pageview');
 
 
 
+
         </div> <!-- /.blog-main -->
 
-        <aside class="col-sm-3 offset-sm-1 blog-sidebar">
+        <aside class="col-sm-3 ml-auto blog-sidebar">
   
   <section class="sidebar-module sidebar-module-inset">
     <h4>About</h4>
@@ -164,21 +191,23 @@ ga('send', 'pageview');
   
 
   
-
-  <section class="sidebar-module">
+        <section class="sidebar-module">
     <h4>Recent Posts</h4>
     <ol class="list-unstyled">
-      
-      <li><a href="/ja/2017/08/13/%E7%B5%90%E5%B1%80github-pages%E3%81%AB%E7%A7%BB%E8%A1%8C/">結局Github Pagesに移行</a></li>
-      
-      <li><a href="/ja/2017/01/02/deploy-hugo-on-google-cloud-storage/">Deploy Hugo on Google Cloud Storage</a></li>
-      
-      <li><a href="/ja/2017/01/01/hello-hugo./">Hello, Hugo.</a></li>
-      
-      <li><a href="/ja/post/">Posts</a></li>
-      
+
+
+<li><a href="/ja/2017/08/17/typescript%E3%81%AElib.d.ts%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AA%E3%83%93%E3%83%A5%E3%83%BC%E3%83%88%E3%81%A7%E3%81%8D%E3%81%9F/">TypeScriptの<code>lib.d.ts</code>にコントリビュートできた</a></li>
+
+<li><a href="/ja/2017/08/13/%E7%B5%90%E5%B1%80github-pages%E3%81%AB%E7%A7%BB%E8%A1%8C/">結局Github Pagesに移行</a></li>
+
+<li><a href="/ja/2017/01/02/deploy-hugo-on-google-cloud-storage/">Deploy Hugo on Google Cloud Storage</a></li>
+
+<li><a href="/ja/2017/01/01/hello-hugo./">Hello, Hugo.</a></li>
+
     </ol>
   </section>
+
+  
 
   
   <section class="sidebar-module">
@@ -207,7 +236,7 @@ ga('send', 'pageview');
       
       </p>
       <p>
-      <a href="https://yokomotod.io/ja/post/#">Back to top</a>
+      <a href="#">Back to top</a>
       </p>
     </footer>
 
