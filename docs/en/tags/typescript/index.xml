@@ -6,10 +6,22 @@
     <description>Recent content in Typescript on yokomotod.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy;2017 yokomotod</copyright>
-    <lastBuildDate>Thu, 17 Aug 2017 00:04:18 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 18 Aug 2017 03:07:19 +0900</lastBuildDate>
     
 	<atom:link href="https://yokomotod.io/en/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>tsc --watch --skipLibCheck</title>
+      <link>https://yokomotod.io/en/2017/08/18/tsc---watch---skiplibcheck/</link>
+      <pubDate>Fri, 18 Aug 2017 03:07:19 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/en/2017/08/18/tsc---watch---skiplibcheck/</guid>
+      <description>tsc --watch --skipLibCheck  good speed.
+normal full compile
+Files: 464 Lines: 97878 Nodes: 431416 Identifiers: 142914 Symbols: 108604 Types: 37006 Memory used: 230040K I/O read: 0.05s I/O write: 1.35s Parse time: 1.27s Bind time: 0.59s Check time: 4.40s Emit time: 3.50s Total time: 9.77s  full compile + skipLibCheck
+Files: 464 Lines: 97878 Nodes: 431416 Identifiers: 142914 Symbols: 92415 Types: 17081 Memory used: 199322K I/O read: 0.04s I/O write: 0.</description>
+    </item>
     
     <item>
       <title>Contributed to TypeScript&#39;s `lib.d.ts`</title>
