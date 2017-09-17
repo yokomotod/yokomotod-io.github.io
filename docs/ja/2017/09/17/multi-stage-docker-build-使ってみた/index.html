@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Multi Stage Docker Build 使ってみた" />
+<meta property="og:description" content="TypeScrptで書いたNode.jsアプリをk8sにデプロイするのに、今まではこんなDockerfileを書いてた。 FROM node:8.5.0 RUN apt-get update \ &amp;&amp; apt-get install -y" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yokomotod.io/ja/2017/09/17/multi-stage-docker-build-%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/" />
+
+
+
+<meta property="article:published_time" content="2017-09-17T13:38:11&#43;09:00"/>
+<meta property="article:modified_time" content="2017-09-17T13:38:11&#43;09:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Multi Stage Docker Build 使ってみた"/>
+<meta name="twitter:description" content="TypeScrptで書いたNode.jsアプリをk8sにデプロイするのに、今まではこんなDockerfileを書いてた。 FROM node:8.5.0 RUN apt-get update \ &amp;&amp; apt-get install -y"/>
+<meta name="twitter:site" content="@yokomotod"/>
+<meta name="generator" content="Hugo 0.27.1" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Multi Stage Docker Build 使ってみた",
+  "url": "https://yokomotod.io/ja/2017/09/17/multi-stage-docker-build-%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/",
+  "wordCount": "694",
+  "datePublished": "2017-09-17T13:38:11&#43;09:00",
+  "dateModified": "2017-09-17T13:38:11&#43;09:00",
+  "author": {
+    "@type": "Person",
+    "name": "yokomotod"
+  },
+  "keywords": "docker, kubernetes, typescript"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://yokomotod.io/ja/2017/09/17/multi-stage-docker-build-%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/">
+
+    <title>Multi Stage Docker Build 使ってみた | yokomotod.io</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://yokomotod.io/css/style.css" rel="stylesheet" integrity="sha384-zYRhIy0/Yl1e5lW9cimY1AugfdkHChXyCbs2NKFaLTgeQjVfj/CMPIUdjXm/JPWV" crossorigin="anonymous">
+
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-51089249-4', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://yokomotod.io/">Home</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="https://yokomotod.io/" rel="home">yokomotod.io</a></h1>
+        
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://yokomotod.io/ja/2017/09/17/multi-stage-docker-build-%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/">Multi Stage Docker Build 使ってみた</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-09-17T13:38:11&#43;09:00">Sun Sep 17, 2017</time> by yokomotod in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/ja/tags/docker" rel="tag">docker</a>, <a href="/ja/tags/kubernetes" rel="tag">kubernetes</a>, <a href="/ja/tags/typescript" rel="tag">typescript</a>
+
+</p>
+  </header>
+  <p>TypeScrptで書いたNode.jsアプリをk8sにデプロイするのに、今まではこんなDockerfileを書いてた。</p>
+
+<pre><code>FROM node:8.5.0
+
+RUN apt-get update \
+  &amp;&amp; apt-get install -y --no-install-recommends \
+    apt-transport-https \
+  &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update \
+  &amp;&amp; apt-get install -y --no-install-recommends \
+    いろいろ
+  &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+EXPOSE 3000
+
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
+COPY package.json yarn.lock /usr/src/app/
+RUN yarn install
+
+COPY . /usr/src/app
+RUN yarn run compile
+
+CMD [&quot;node&quot;, &quot;dist/main/app.js&quot;]
+</code></pre>
+
+<p>気持ち悪いのが、TypeScriptのトランスパイルのために<code>typescript</code>パッケージやもろもろの<code>@types/*</code>パッケージも全部インストールされたイメージができているところ。</p>
+
+<p>さらにCIで</p>
+
+<pre><code>docker run --rm イメージ名:test yarn run mocha 'dist/test/**/*.js'
+docker run --rm イメージ名:test yarn run tslint --project tsconfig.json
+docker run --rm イメージ名:test yarn run prettier --list-different 'src/**/*.ts'
+</code></pre>
+
+<p>とやってテストもしたいので、<code>mocha</code>なんかのテスト用の依存も全部入ってしまっている。</p>
+
+<p>気持ち悪いと思いながら、とりあえずdependenciesもdevDependenciesもインストールしていた。</p>
+
+<p>今回multi stage build使って書き直した結果</p>
+
+<pre><code>FROM node:8.5.0 AS base
+
+RUN apt-get update \
+  &amp;&amp; apt-get install -y --no-install-recommends \
+    apt-transport-https \
+  &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update \
+  &amp;&amp; apt-get install -y --no-install-recommends \
+    いろいろ
+  &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
+
+
+FROM base AS builder
+
+COPY package.json yarn.lock /usr/src/app/
+RUN yarn install --production
+
+RUN cp -R node_modules node_modules_production
+
+RUN yarn install
+
+COPY . /usr/src/app
+RUN yarn run compile
+
+RUN yarn run mocha 'dist/test/**/*.js'
+RUN yarn run tslint --project tsconfig.json
+RUN yarn run prettier --list-different 'src/**/*.ts'
+
+
+FROM base
+
+COPY --from=builder /usr/src/app/node_modules_production ./node_modules
+COPY --from=builder /usr/src/app/dist ./dist
+
+COPY res ./res
+COPY database.json ./database.json
+
+EXPOSE 3000
+
+CMD [&quot;node&quot;, &quot;dist/main/app.js&quot;]
+</code></pre>
+
+<p>最終的にデプロイされるイメージには<code>yarn install --production</code>したnode_modulesのみ（devDependenciesを含まない）にできた。</p>
+
+<p>このイメージを使って外部からテスト実行するやりかたはできなくなるので、Dockerfile内でやってしまうことに変更。</p>
+
+<p>イメージサイズは1.6GBだったのが1.2GBくらいにまで減った 🎉</p>
+
+<p>参考</p>
+
+<ul>
+<li><a href="https://docs.docker.com/engine/userguide/eng-image/multistage-build/">Use multi-stage builds | Docker Documentation</a></li>
+<li><a href="https://blog.alexellis.io/mutli-stage-docker-builds/]">Builder pattern vs. Multi-stage builds in Docker</a></li>
+<li><a href="https://codefresh.io/blog/node_docker_multistage/">Create lean Node.js image with Docker multi-stage build</a></li>
+</ul>
+
+
+  
+  <h4>Translations</h4>
+  <ul>
+    
+    <li>
+      <a href="https://yokomotod.io/en/2017/09/17/2017-09-17-use-multi-stage-docker-build/">en: 2017 09 17 Use Multi Stage Docker Build</a>
+    </li>
+    
+  </ul>
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fyokomotod.io%2fja%2f2017%2f09%2f17%2fmulti-stage-docker-build-%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fyokomotod.io%2fja%2f2017%2f09%2f17%2fmulti-stage-docker-build-%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fyokomotod.io%2fja%2f2017%2f09%2f17%2fmulti-stage-docker-build-%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fyokomotod.io%2fja%2f2017%2f09%2f17%2fmulti-stage-docker-build-%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yokomotod-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>yokomotod blog</p>
+  </section>
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/ja/2017/09/17/multi-stage-docker-build-%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/">Multi Stage Docker Build 使ってみた</a></li>
+
+<li><a href="/ja/2017/08/18/tsc---watch---skiplibcheck/">tsc &ndash;watch &ndash;skipLibCheck</a></li>
+
+<li><a href="/ja/2017/08/17/typescript%E3%81%AElib.d.ts%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AA%E3%83%93%E3%83%A5%E3%83%BC%E3%83%88%E3%81%A7%E3%81%8D%E3%81%9F/">TypeScriptの<code>lib.d.ts</code>にコントリビュートできた</a></li>
+
+<li><a href="/ja/2017/08/13/%E7%B5%90%E5%B1%80github-pages%E3%81%AB%E7%A7%BB%E8%A1%8C/">結局Github Pagesに移行</a></li>
+
+<li><a href="/ja/2017/01/02/deploy-hugo-on-google-cloud-storage/">Deploy Hugo on Google Cloud Storage</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://github.com/yokomotod">github</a></li>
+      
+      <li><a href="http://qiita.com/yokomotod">qiita</a></li>
+      
+      <li><a href="https://twitter.com/yokomotod">twitter</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      &copy;2017 yokomotod
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

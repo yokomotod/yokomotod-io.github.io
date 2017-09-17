@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on yokomotod.io</title>
+    <link>https://yokomotod.io/en/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on yokomotod.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy;2017 yokomotod</copyright>
+    <lastBuildDate>Sun, 17 Sep 2017 13:38:11 +0900</lastBuildDate>
+    
+	<atom:link href="https://yokomotod.io/en/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2017 09 17 Use Multi Stage Docker Build</title>
+      <link>https://yokomotod.io/en/2017/09/17/2017-09-17-use-multi-stage-docker-build/</link>
+      <pubDate>Sun, 17 Sep 2017 13:38:11 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/en/2017/09/17/2017-09-17-use-multi-stage-docker-build/</guid>
+      <description>I had wrote Dockerfile like this, to deploy Node.js application written by TypeScrpt to k8s FROM node:8.5.0 RUN apt-get update \ &amp;amp;&amp;amp; apt-get install -y --no-install-recommends \ apt-transport-https \ &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/* RUN apt-get update \ &amp;amp;&amp;amp; apt-get install -y --no-install-recommends \ いろいろ &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/* EXPOSE 3000 RUN mkdir -p /usr/src/app WORKDIR /usr/src/app COPY package.json yarn.lock /usr/src/app/ RUN yarn install COPY . /usr/src/app RUN</description>
+    </item>
+    
+  </channel>
+</rss>

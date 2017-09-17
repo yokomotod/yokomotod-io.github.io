@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Docker" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://yokomotod.io/en/tags/docker/" />
+
+
+
+<meta property="og:updated_time" content="2017-09-17T13:38:11&#43;09:00"/>
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Docker"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@yokomotod"/>
+<meta name="generator" content="Hugo 0.27.1" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Blog",
+  "headline": "yokomotod.io",
+  "url" : "https://yokomotod.io/en/tags/docker/",
+  "author": {
+    "@type": "Person",
+    "name": "yokomotod"
+  },
+  "dateModified": "2017-09-17T13:38:11&#43;09:00",
+  "keywords": "docker,gcp,hugo,kubernetes,oss,typescript,"
+}
+</script>
+
+
+    <link rel="canonical" href="https://yokomotod.io/en/tags/docker/">
+
+    <title>yokomotod.io</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://yokomotod.io/css/style.css" rel="stylesheet" integrity="sha384-zYRhIy0/Yl1e5lW9cimY1AugfdkHChXyCbs2NKFaLTgeQjVfj/CMPIUdjXm/JPWV" crossorigin="anonymous">
+
+    
+    <!-- RSS 2.0 feed -->
+    <link href="https://yokomotod.io/en/tags/docker/index.xml" rel="alternate" type="application/rss+xml" title="yokomotod.io" />
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-51089249-4', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://yokomotod.io/">Home</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="https://yokomotod.io/" rel="home">yokomotod.io</a></h1>
+        
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+
+
+
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://yokomotod.io/en/2017/09/17/2017-09-17-use-multi-stage-docker-build/">2017 09 17 Use Multi Stage Docker Build</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-09-17T13:38:11&#43;09:00">Sun Sep 17, 2017</time> by yokomotod in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/en/tags/docker" rel="tag">docker</a>, <a href="/en/tags/kubernetes" rel="tag">kubernetes</a>, <a href="/en/tags/typescript" rel="tag">typescript</a>
+
+</p>
+  </header>
+  I had wrote Dockerfile like this, to deploy Node.js application written by TypeScrpt to k8s FROM node:8.5.0 RUN apt-get update \ &amp;&amp; apt-get install -y --no-install-recommends \ apt-transport-https \ &amp;&amp; rm -rf /var/lib/apt/lists/* RUN apt-get update \ &amp;&amp; apt-get install -y --no-install-recommends \ いろいろ &amp;&amp; rm -rf /var/lib/apt/lists/* EXPOSE 3000 RUN mkdir -p /usr/src/app WORKDIR /usr/src/app COPY package.json yarn.lock /usr/src/app/ RUN yarn install COPY . /usr/src/app RUN
+  <a href='https://yokomotod.io/en/2017/09/17/2017-09-17-use-multi-stage-docker-build/'>Read more →</a>
+</article> 
+
+
+
+
+
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>yokomotod blog</p>
+  </section>
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/en/2017/09/17/2017-09-17-use-multi-stage-docker-build/">2017 09 17 Use Multi Stage Docker Build</a></li>
+
+<li><a href="/en/2017/08/18/tsc---watch---skiplibcheck/">tsc &ndash;watch &ndash;skipLibCheck</a></li>
+
+<li><a href="/en/2017/08/17/contributed-to-typescripts-lib.d.ts/">Contributed to TypeScript&rsquo;s <code>lib.d.ts</code></a></li>
+
+<li><a href="/en/2017/08/13/migrated-to-github-pages/">Migrated to Github Pages</a></li>
+
+<li><a href="/en/2017/01/02/deploy-hugo-on-google-cloud-storage/">Deploy Hugo on Google Cloud Storage</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://github.com/yokomotod">github</a></li>
+      
+      <li><a href="http://qiita.com/yokomotod">qiita</a></li>
+      
+      <li><a href="https://twitter.com/yokomotod">twitter</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      &copy;2017 yokomotod
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

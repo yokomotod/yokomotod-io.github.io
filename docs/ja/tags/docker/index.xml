@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on yokomotod.io</title>
+    <link>https://yokomotod.io/ja/tags/docker/</link>
+    <description>Recent content in Docker on yokomotod.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy;2017 yokomotod</copyright>
+    <lastBuildDate>Sun, 17 Sep 2017 13:38:11 +0900</lastBuildDate>
+    
+	<atom:link href="https://yokomotod.io/ja/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Multi Stage Docker Build 使ってみた</title>
+      <link>https://yokomotod.io/ja/2017/09/17/multi-stage-docker-build-%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+      <pubDate>Sun, 17 Sep 2017 13:38:11 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/ja/2017/09/17/multi-stage-docker-build-%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+      <description>TypeScrptで書いたNode.jsアプリをk8sにデプロイするのに、今まではこんなDockerfileを書いてた。 FROM node:8.5.0 RUN apt-get update \ &amp;amp;&amp;amp; apt-get install -y</description>
+    </item>
+    
+  </channel>
+</rss>
