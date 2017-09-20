@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ios on yokomotod.io</title>
+    <link>https://yokomotod.io/ja/tags/ios/</link>
+    <description>Recent content in Ios on yokomotod.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy;2017 yokomotod</copyright>
+    <lastBuildDate>Wed, 20 Sep 2017 13:56:05 +0900</lastBuildDate>
+    
+	<atom:link href="https://yokomotod.io/ja/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Swift 4 マイグレーション、またはXcode9対応 メモ</title>
+      <link>https://yokomotod.io/ja/2017/09/20/swift-4-%E3%83%9E%E3%82%A4%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%BE%E3%81%9F%E3%81%AFxcode9%E5%AF%BE%E5%BF%9C-%E3%83%A1%E3%83%A2/</link>
+      <pubDate>Wed, 20 Sep 2017 13:56:05 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/ja/2017/09/20/swift-4-%E3%83%9E%E3%82%A4%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%BE%E3%81%9F%E3%81%AFxcode9%E5%AF%BE%E5%BF%9C-%E3%83%A1%E3%83%A2/</guid>
+      <description>beta時代はサボっていたけど、正式版も出たことだし恒例のSwiftマイグレーションやったのでログ。 開始前 各種バージョン Xcode 8.3.2 Swift 3.2 CocoaPods: 1.3.1 使ってい</description>
+    </item>
+    
+  </channel>
+</rss>

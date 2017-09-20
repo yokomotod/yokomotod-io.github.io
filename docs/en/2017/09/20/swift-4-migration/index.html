@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Swift 4 Migration" />
+<meta property="og:description" content="Before Migration versions:
+Xcode 8.3.2 Swift 3.2 CocoaPods: 1.3.1  Pods:
+ pod &#39;APIKit&#39; pod &#39;Crashlytics&#39; pod &#39;CryptoSwift&#39; pod &#39;Fabric&#39; pod &#39;Firebase/Core&#39; pod &#39;Google/Analytics&#39; pod &#39;GoogleIDFASupport&#39; pod &#39;Himotoki&#39; pod &#39;PureLayout&#39; pod &#39;SDWebImage&#39; pod &#39;SVProgressHUD&#39; pod &#39;SwiftyRSA&#39; pod &#39;TTTAttributedLabel&#39;  Upgrade to Xcode9 (with swift3.2) Don&rsquo;t touch these, yet
+Swift Conversion Convertion to Swift 4 is available  Validate Project Settings Update to recommended settings  Some Pod build will fail (CryptoSwift) In case of CryptoSwift, it already release swift 4 support version." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yokomotod.io/en/2017/09/20/swift-4-migration/" />
+
+
+
+<meta property="article:published_time" content="2017-09-20T13:56:05&#43;09:00"/>
+<meta property="article:modified_time" content="2017-09-20T13:56:05&#43;09:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Swift 4 Migration"/>
+<meta name="twitter:description" content="Before Migration versions:
+Xcode 8.3.2 Swift 3.2 CocoaPods: 1.3.1  Pods:
+ pod &#39;APIKit&#39; pod &#39;Crashlytics&#39; pod &#39;CryptoSwift&#39; pod &#39;Fabric&#39; pod &#39;Firebase/Core&#39; pod &#39;Google/Analytics&#39; pod &#39;GoogleIDFASupport&#39; pod &#39;Himotoki&#39; pod &#39;PureLayout&#39; pod &#39;SDWebImage&#39; pod &#39;SVProgressHUD&#39; pod &#39;SwiftyRSA&#39; pod &#39;TTTAttributedLabel&#39;  Upgrade to Xcode9 (with swift3.2) Don&rsquo;t touch these, yet
+Swift Conversion Convertion to Swift 4 is available  Validate Project Settings Update to recommended settings  Some Pod build will fail (CryptoSwift) In case of CryptoSwift, it already release swift 4 support version."/>
+<meta name="twitter:site" content="@yokomotod"/>
+<meta name="generator" content="Hugo 0.27.1" />
+
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Swift 4 Migration",
+  "url": "https://yokomotod.io/en/2017/09/20/swift-4-migration/",
+  "wordCount": "452",
+  "datePublished": "2017-09-20T13:56:05&#43;09:00",
+  "dateModified": "2017-09-20T13:56:05&#43;09:00",
+  "author": {
+    "@type": "Person",
+    "name": "yokomotod"
+  },
+  "keywords": "ios, swift, xcode"
+}
+</script>
+
+
+
+    <link rel="canonical" href="https://yokomotod.io/en/2017/09/20/swift-4-migration/">
+
+    <title>Swift 4 Migration | yokomotod.io</title>
+
+    <!-- combined, minified CSS -->
+    <link href="https://yokomotod.io/css/style.css" rel="stylesheet" integrity="sha384-zYRhIy0/Yl1e5lW9cimY1AugfdkHChXyCbs2NKFaLTgeQjVfj/CMPIUdjXm/JPWV" crossorigin="anonymous">
+
+    
+
+    
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-51089249-4', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+    
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link " href="https://yokomotod.io/">Home</a>
+          
+          
+        </nav>
+      </div>
+    </div>
+
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="https://yokomotod.io/" rel="home">yokomotod.io</a></h1>
+        
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          
+
+
+<article class="blog-post">
+  <header>
+    <h2 class="blog-post-title"><a href="https://yokomotod.io/en/2017/09/20/swift-4-migration/">Swift 4 Migration</a></h2>
+    <p class="blog-post-meta"><time datetime="2017-09-20T13:56:05&#43;09:00">Wed Sep 20, 2017</time> by yokomotod in 
+
+<i class="fa fa-tag" aria-hidden="true"></i>&nbsp;<a href="/en/tags/ios" rel="tag">ios</a>, <a href="/en/tags/swift" rel="tag">swift</a>, <a href="/en/tags/xcode" rel="tag">xcode</a>
+
+</p>
+  </header>
+  
+
+<h2 id="before-migration">Before Migration</h2>
+
+<p>versions:</p>
+
+<pre><code>Xcode 8.3.2
+Swift 3.2
+CocoaPods: 1.3.1
+</code></pre>
+
+<p>Pods:</p>
+
+<pre><code>  pod 'APIKit'
+  pod 'Crashlytics'
+  pod 'CryptoSwift'
+  pod 'Fabric'
+  pod 'Firebase/Core'
+  pod 'Google/Analytics'
+  pod 'GoogleIDFASupport'
+  pod 'Himotoki'
+  pod 'PureLayout'
+  pod 'SDWebImage'
+  pod 'SVProgressHUD'
+  pod 'SwiftyRSA'
+  pod 'TTTAttributedLabel'
+</code></pre>
+
+<h2 id="upgrade-to-xcode9-with-swift3-2">Upgrade to Xcode9 (with swift3.2)</h2>
+
+<p>Don&rsquo;t touch these, yet</p>
+
+<pre><code>Swift Conversion
+  Convertion to Swift 4 is available
+</code></pre>
+
+<pre><code>Validate Project Settings
+  Update to recommended settings
+</code></pre>
+
+<h3 id="some-pod-build-will-fail-cryptoswift">Some Pod build will fail (CryptoSwift)</h3>
+
+<p>In case of CryptoSwift, it already release swift 4 support version.
+Just <code>bundle update</code></p>
+
+<h3 id="himotoki">Himotoki</h3>
+
+<pre><code>'Decodable' is ambiguous for type lookup in this context`
+</code></pre>
+
+<p><a href="https://github.com/ikesyo/Himotoki">https://github.com/ikesyo/Himotoki</a></p>
+
+<blockquote>
+<p>⚠️ Please note that you should need to add the module name Himotoki to Decodable (Himotoki.Decodable) to avoid type name collision with Foundation.Decodable in Xcode 9 or later. ⚠️</p>
+</blockquote>
+
+<p>As above notice, replace <code>Decodable</code> to <code>Himotoki.Decodable</code>.</p>
+
+<p>I faced following error as well, and fixed with <code>KeyPath</code> → <code>Himotoki.KeyPath</code>.</p>
+
+<pre><code>Reference to generic type 'KeyPath' requires arguments in &lt;...&gt;
+</code></pre>
+
+<h2 id="upgrade-to-swift-4">Upgrade to Swift 4</h2>
+
+<h3 id="auto-conversion">Auto Conversion</h3>
+
+<p>Execute auto conversion for only own project. (includes Tests, UITests, and Extension but NOT Pods)</p>
+
+<p>According to the document,</p>
+
+<p><a href="https://help.apple.com/xcode/mac/current/#/deve838b19a1?sub=devded6c2001">https://help.apple.com/xcode/mac/current/#/deve838b19a1?sub=devded6c2001</a></p>
+
+<p>We can choose from</p>
+
+<ul>
+<li>Minimize Inference</li>
+<li>Match Swift 3 Behavior</li>
+</ul>
+
+<p>To activate Swift 4&rsquo;s merit, <code>Minimize Inference</code>.</p>
+
+<p>It will change
+- Some Enums
+- Add <code>@objc</code> for method which are refered via <code>#selector()</code></p>
+
+<p>Then new warning</p>
+
+<pre><code>Dependency Analysis Warning
+  The use of Swift 3 @objc inference in Swift 4 mode is deprecated. Please address deprecated @objc inference warnings, test
+  your code with “Use of deprecated Swift 3 @objc inference” logging enabled, and then disable inference by changing the
+  &quot;Swift 3 @objc Inference&quot; build setting to &quot;Default&quot; for the &quot;Hopping&quot; target.
+</code></pre>
+
+<p>will come.</p>
+
+<p>And some deprecated warning too.</p>
+
+<h3 id="update-to-recommended-settings">Update to recommended settings</h3>
+
+<p>Execute &ldquo;Update to recommended settings&rdquo; on own project, then it will enable some compiler warnings.</p>
+
+<p>Usually, <code>Pods/</code> will be excluded from version controll, so we shouldn&rsquo;t execute &ldquo;Update to recommended settings&rdquo; for Pod project.</p>
+
+<p>There is an issue on CocoaPods,</p>
+
+<p><a href="https://github.com/CocoaPods/CocoaPods/issues/6863">https://github.com/CocoaPods/CocoaPods/issues/6863</a></p>
+
+<p>So we should wait v1.4.0</p>
+
+<h3 id="swift-version-4-0-in-podfile"><code>swift_version = '4.0'</code> in Podfile</h3>
+
+<p>Some Pod will build fail at here as well.</p>
+
+<p>In my case, SwiftyRSA failed. They already have <code>swift4</code> branch so,</p>
+
+<pre><code>  pod 'SwiftyRSA', :git =&gt; 'https://github.com/TakeScoop/SwiftyRSA', :branch =&gt; 'swift4'
+</code></pre>
+
+<h2 id="resolve-warnings">Resolve warnings</h2>
+
+<h3 id="the-use-of-swift-3-objc-inference-in-swift-4-mode-is-deprecated"><code>The use of Swift 3 @objc inference in Swift 4 mode is deprecated.</code></h3>
+
+<p>In project settings, each targets have <code>On</code>, so change it to <code>Default</code>.</p>
+
+<p><code>Swift 3 @objc inference</code>:  <code>Default</code></p>
+
+<p>(refer <a href="https://help.apple.com/xcode/mac/current/#/deve838b19a1?sub=devded6c2001">https://help.apple.com/xcode/mac/current/#/deve838b19a1?sub=devded6c2001</a> )</p>
+
+<h3 id="resolve-deprecated-warnings">resolve deprecated warnings</h3>
+
+<p>In my case, i had only this kind of warning.</p>
+
+<pre><code>warning: 'substring(to:)' is deprecated: Please use String slicing subscript with a 'partial range upto' operator.
+</code></pre>
+
+<p>So, change</p>
+
+<pre><code>text.substring(to: 3)
+text.substring(from: 3)
+</code></pre>
+
+<p>to</p>
+
+<pre><code>String(text.prefix(3))
+String(text[text.index(text.startIndex, offsetBy: 3)...])
+</code></pre>
+
+<h2 id="done">Done !</h2>
+
+<p>I feel this time is quite easier, compare to swift 3 migration.
+But I will need to adapt iPhone X as well.</p>
+
+
+  
+  <h4>Translations</h4>
+  <ul>
+    
+    <li>
+      <a href="https://yokomotod.io/ja/2017/09/20/swift-4-%E3%83%9E%E3%82%A4%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%BE%E3%81%9F%E3%81%AFxcode9%E5%AF%BE%E5%BF%9C-%E3%83%A1%E3%83%A2/">ja: Swift 4 マイグレーション、またはXcode9対応 メモ</a>
+    </li>
+    
+  </ul>
+  
+
+  
+  <hr>
+  <footer>
+
+  
+    <section>
+    <h4>Share</h4>
+    <nav class="nav sharing-icons">
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fyokomotod.io%2fen%2f2017%2f09%2f20%2fswift-4-migration%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://plus.google.com/share?url=https%3a%2f%2fyokomotod.io%2fen%2f2017%2f09%2f20%2fswift-4-migration%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fyokomotod.io%2fen%2f2017%2f09%2f20%2fswift-4-migration%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
+      <a class="nav-item" href="https://twitter.com/home?status=https%3a%2f%2fyokomotod.io%2fen%2f2017%2f09%2f20%2fswift-4-migration%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
+    </nav>
+  </section>
+
+  
+
+  
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yokomotod-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+  </footer>
+  
+
+</article> 
+
+
+
+        </div> <!-- /.blog-main -->
+
+        <aside class="col-sm-3 ml-auto blog-sidebar">
+  
+  <section class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>yokomotod blog</p>
+  </section>
+  
+
+  
+        <section class="sidebar-module">
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+
+
+<li><a href="/en/2017/09/20/swift-4-migration/">Swift 4 Migration</a></li>
+
+<li><a href="/en/2017/09/17/2017-09-17-use-multi-stage-docker-build/">2017 09 17 Use Multi Stage Docker Build</a></li>
+
+<li><a href="/en/2017/08/18/tsc---watch---skiplibcheck/">tsc &ndash;watch &ndash;skipLibCheck</a></li>
+
+<li><a href="/en/2017/08/17/contributed-to-typescripts-lib.d.ts/">Contributed to TypeScript&rsquo;s <code>lib.d.ts</code></a></li>
+
+<li><a href="/en/2017/08/13/migrated-to-github-pages/">Migrated to Github Pages</a></li>
+
+    </ol>
+  </section>
+
+  
+
+  
+  <section class="sidebar-module">
+    <h4>Links</h4>
+    <ol class="list-unstyled">
+      
+      <li><a href="https://github.com/yokomotod">github</a></li>
+      
+      <li><a href="http://qiita.com/yokomotod">qiita</a></li>
+      
+      <li><a href="https://twitter.com/yokomotod">twitter</a></li>
+      
+    </ol>
+  </section>
+  
+</aside>
+
+
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>
+      
+      &copy;2017 yokomotod
+      
+      </p>
+      <p>
+      <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+  </body>
+
+</html>

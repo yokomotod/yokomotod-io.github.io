@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://yokomotod.io/en/2017/09/20/swift-4-migration/</loc>
+    <lastmod>2017-09-20T13:56:05+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://yokomotod.io/ja/2017/09/20/swift-4-%E3%83%9E%E3%82%A4%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%BE%E3%81%9F%E3%81%AFxcode9%E5%AF%BE%E5%BF%9C-%E3%83%A1%E3%83%A2/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://yokomotod.io/en/2017/09/20/swift-4-migration/"
+                />
+  </url>
+  
+  <url>
     <loc>https://yokomotod.io/en/2017/09/17/2017-09-17-use-multi-stage-docker-build/</loc>
     <lastmod>2017-09-17T13:38:11+09:00</lastmod>
     <xhtml:link
@@ -141,6 +156,22 @@
   </url>
   
   <url>
+    <loc>https://yokomotod.io/en/tags/ios/</loc>
+    <lastmod>2017-09-20T13:56:05+09:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://yokomotod.io/ja/tags/ios/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://yokomotod.io/en/tags/ios/"
+                />
+  </url>
+  
+  <url>
     <loc>https://yokomotod.io/en/tags/kubernetes/</loc>
     <lastmod>2017-09-17T13:38:11+09:00</lastmod>
     <priority>0</priority>
@@ -174,7 +205,7 @@
   
   <url>
     <loc>https://yokomotod.io/en/post/</loc>
-    <lastmod>2017-09-17T13:38:11+09:00</lastmod>
+    <lastmod>2017-09-20T13:56:05+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -185,6 +216,22 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://yokomotod.io/en/post/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://yokomotod.io/en/tags/swift/</loc>
+    <lastmod>2017-09-20T13:56:05+09:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://yokomotod.io/ja/tags/swift/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://yokomotod.io/en/tags/swift/"
                 />
   </url>
   
@@ -221,8 +268,24 @@
   </url>
   
   <url>
+    <loc>https://yokomotod.io/en/tags/xcode/</loc>
+    <lastmod>2017-09-20T13:56:05+09:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://yokomotod.io/ja/tags/xcode/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://yokomotod.io/en/tags/xcode/"
+                />
+  </url>
+  
+  <url>
     <loc>https://yokomotod.io/en/</loc>
-    <lastmod>2017-09-17T13:38:11+09:00</lastmod>
+    <lastmod>2017-09-20T13:56:05+09:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

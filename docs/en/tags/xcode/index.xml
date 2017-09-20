@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xcode on yokomotod.io</title>
+    <link>https://yokomotod.io/en/tags/xcode/</link>
+    <description>Recent content in Xcode on yokomotod.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy;2017 yokomotod</copyright>
+    <lastBuildDate>Wed, 20 Sep 2017 13:56:05 +0900</lastBuildDate>
+    
+	<atom:link href="https://yokomotod.io/en/tags/xcode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Swift 4 Migration</title>
+      <link>https://yokomotod.io/en/2017/09/20/swift-4-migration/</link>
+      <pubDate>Wed, 20 Sep 2017 13:56:05 +0900</pubDate>
+      
+      <guid>https://yokomotod.io/en/2017/09/20/swift-4-migration/</guid>
+      <description>Before Migration versions:
+Xcode 8.3.2 Swift 3.2 CocoaPods: 1.3.1  Pods:
+ pod &#39;APIKit&#39; pod &#39;Crashlytics&#39; pod &#39;CryptoSwift&#39; pod &#39;Fabric&#39; pod &#39;Firebase/Core&#39; pod &#39;Google/Analytics&#39; pod &#39;GoogleIDFASupport&#39; pod &#39;Himotoki&#39; pod &#39;PureLayout&#39; pod &#39;SDWebImage&#39; pod &#39;SVProgressHUD&#39; pod &#39;SwiftyRSA&#39; pod &#39;TTTAttributedLabel&#39;  Upgrade to Xcode9 (with swift3.2) Don&amp;rsquo;t touch these, yet
+Swift Conversion Convertion to Swift 4 is available  Validate Project Settings Update to recommended settings  Some Pod build will fail (CryptoSwift) In case of CryptoSwift, it already release swift 4 support version.</description>
+    </item>
+    
+  </channel>
+</rss>
